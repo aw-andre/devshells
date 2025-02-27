@@ -47,9 +47,6 @@
             installRustfmt = true;
           };
         };
-        extraPackages = with pkgs; [
-          rustup
-        ];
       };
       nixvim-old = nixvim-config.packages."x86_64-linux".default;
       nixvim-modified = nixvim-old.extend module-added;
@@ -58,8 +55,13 @@
       devShells."x86_64-linux".default = pkgs.mkShell {
         buildInputs = [ nixvim-modified ];
         packages = with pkgs; [
+          gcc
+          rustc
           cargo
         ];
+        shellHook = ''
+          export RUST_BACKTRACE=1
+        '';
       };
     };
 }
