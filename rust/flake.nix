@@ -22,7 +22,7 @@
     }:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
-      module-added = nixpkgs.lib.mkForce {
+      module-added = {
         plugins = {
           conform-nvim.settings.formatters_by_ft.c = [ "rustfmt" ];
           dap = {
