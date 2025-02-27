@@ -40,12 +40,15 @@
             ];
           };
           lint.lintersByFt.rust = [ "clippy" ];
-          lsp.servers.rust_analyzer.enable = true;
+          lsp.servers.rust_analyzer = {
+            enable = true;
+            installCargo = true;
+            installRustc = true;
+            installRustfmt = true;
+          };
         };
         extraPackages = with pkgs; [
-          rustc
-          rustfmt
-          clippy
+          rustup
         ];
       };
       nixvim-old = nixvim-config.packages."x86_64-linux".default;
