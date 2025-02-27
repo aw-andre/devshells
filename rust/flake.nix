@@ -40,14 +40,10 @@
             ];
           };
           lint.lintersByFt.rust = [ "clippy" ];
-          lsp.servers.rust_analyzer = {
-            enable = true;
-            installCargo = true;
-            installRustc = true;
-            installRustfmt = true;
-          };
+          lsp.servers.rust_analyzer.enable = true;
         };
         extraPackages = with pkgs; [
+          rustc
           rustfmt
           clippy
         ];

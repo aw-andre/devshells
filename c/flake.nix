@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
-    nixvim = {
+    nixvim-master = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
     };
@@ -15,10 +15,9 @@
 
   outputs =
     {
-      self,
       nixpkgs,
-      nixvim,
       nixvim-config,
+      ...
     }:
     let
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
