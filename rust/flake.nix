@@ -23,7 +23,7 @@
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
       module-added = {
         plugins = {
-          conform-nvim.settings.formatters_by_ft.c = [ "rustfmt" ];
+          conform-nvim.settings.formatters_by_ft.rust = [ "rustfmt" ];
           dap = {
             adapters.executables.lldb.command = "${pkgs.lldb_19}/bin/lldb-dap";
             configurations.rust = [
