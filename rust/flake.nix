@@ -46,6 +46,10 @@
             installRustfmt = true;
           };
         };
+        extraPackages = with pkgs; [
+          rustfmt
+          clippy
+        ];
       };
       nixvim-old = nixvim-config.packages."x86_64-linux".default;
       nixvim-modified = nixvim-old.extend module-added;
