@@ -24,20 +24,7 @@
       module-added = {
         plugins = {
           conform-nvim.settings.formatters_by_ft.rust = [ "rustfmt" ];
-          dap = {
-            adapters.executables.lldb.command = "${pkgs.lldb_19}/bin/lldb-dap";
-            configurations.rust = [
-              {
-                name = "lldb";
-                type = "lldb";
-                request = "launch";
-                program.__raw = ''
-                  function()
-                      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
-                  end'';
-              }
-            ];
-          };
+          dap-lldb.enable = true;
           lint.lintersByFt.rust = [ "clippy" ];
           lsp.servers.rust_analyzer = {
             enable = true;
