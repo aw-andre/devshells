@@ -3,7 +3,7 @@
 set -e
 for dir in *; do
   pushd "$dir" &>/dev/null
-  nix flake update
+  nix flake update nixvim-config
   popd &>/dev/null
 done
 
