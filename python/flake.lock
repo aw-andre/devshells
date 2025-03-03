@@ -2,7 +2,26 @@
   "nodes": {
     "flake-parts": {
       "inputs": {
+        "nixpkgs-lib": "nixpkgs-lib"
+      },
+      "locked": {
+        "lastModified": 1738453229,
+        "narHash": "sha256-7H9XgNiGLKN1G1CgRh0vUL4AheZSYzPm+zmZ7vxbJdo=",
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "rev": "32ea77a06711b758da0ad9bd6a844c5740a87abd",
+        "type": "github"
+      },
+      "original": {
+        "owner": "hercules-ci",
+        "repo": "flake-parts",
+        "type": "github"
+      }
+    },
+    "flake-parts_2": {
+      "inputs": {
         "nixpkgs-lib": [
+          "nixvim-config",
           "nixvim",
           "nixpkgs"
         ]
@@ -21,29 +40,10 @@
         "type": "github"
       }
     },
-    "flake-parts_2": {
-      "inputs": {
-        "nixpkgs-lib": "nixpkgs-lib"
-      },
-      "locked": {
-        "lastModified": 1738453229,
-        "narHash": "sha256-7H9XgNiGLKN1G1CgRh0vUL4AheZSYzPm+zmZ7vxbJdo=",
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "rev": "32ea77a06711b758da0ad9bd6a844c5740a87abd",
-        "type": "github"
-      },
-      "original": {
-        "owner": "hercules-ci",
-        "repo": "flake-parts",
-        "type": "github"
-      }
-    },
     "flake-parts_3": {
       "inputs": {
         "nixpkgs-lib": [
-          "nixvim-config",
-          "nixvim",
+          "nixvim-master",
           "nixpkgs"
         ]
       },
@@ -100,11 +100,13 @@
     "ixx": {
       "inputs": {
         "flake-utils": [
+          "nixvim-config",
           "nixvim",
           "nuschtosSearch",
           "flake-utils"
         ],
         "nixpkgs": [
+          "nixvim-config",
           "nixvim",
           "nuschtosSearch",
           "nixpkgs"
@@ -128,14 +130,12 @@
     "ixx_2": {
       "inputs": {
         "flake-utils": [
-          "nixvim-config",
-          "nixvim",
+          "nixvim-master",
           "nuschtosSearch",
           "flake-utils"
         ],
         "nixpkgs": [
-          "nixvim-config",
-          "nixvim",
+          "nixvim-master",
           "nuschtosSearch",
           "nixpkgs"
         ]
@@ -157,11 +157,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1740560979,
-        "narHash": "sha256-Vr3Qi346M+8CjedtbyUevIGDZW8LcA1fTG0ugPY/Hic=",
+        "lastModified": 1740828860,
+        "narHash": "sha256-cjbHI+zUzK5CPsQZqMhE3npTyYFt9tJ3+ohcfaOF/WM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "5135c59491985879812717f4c9fea69604e7f26f",
+        "rev": "303bd8071377433a2d8f76e684ec773d70c5b642",
         "type": "github"
       },
       "original": {
@@ -201,10 +201,8 @@
     },
     "nixvim": {
       "inputs": {
-        "flake-parts": "flake-parts",
-        "nixpkgs": [
-          "nixpkgs"
-        ],
+        "flake-parts": "flake-parts_2",
+        "nixpkgs": "nixpkgs_2",
         "nuschtosSearch": "nuschtosSearch"
       },
       "locked": {
@@ -223,18 +221,18 @@
     },
     "nixvim-config": {
       "inputs": {
-        "flake-parts": "flake-parts_2",
+        "flake-parts": "flake-parts",
         "nixpkgs": [
           "nixpkgs"
         ],
-        "nixvim": "nixvim_2"
+        "nixvim": "nixvim"
       },
       "locked": {
-        "lastModified": 1740684064,
-        "narHash": "sha256-pRaYSaHtIpilzLWZA9DHkbHH8KHbdMu3/fqZI2v5B6U=",
+        "lastModified": 1740981585,
+        "narHash": "sha256-Mf6/vdpaKNeH039HjeyeZe1KNd2ZodGbLOckMWZVIec=",
         "owner": "aw-andre",
         "repo": "nixvim",
-        "rev": "8d7583a686ee65cc3b0a152796130b45a17baffd",
+        "rev": "a780a8a781e685a89cfe42c1061347731fd9a03c",
         "type": "github"
       },
       "original": {
@@ -243,10 +241,12 @@
         "type": "github"
       }
     },
-    "nixvim_2": {
+    "nixvim-master": {
       "inputs": {
         "flake-parts": "flake-parts_3",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "nuschtosSearch": "nuschtosSearch_2"
       },
       "locked": {
@@ -268,6 +268,7 @@
         "flake-utils": "flake-utils",
         "ixx": "ixx",
         "nixpkgs": [
+          "nixvim-config",
           "nixvim",
           "nixpkgs"
         ]
@@ -291,8 +292,7 @@
         "flake-utils": "flake-utils_2",
         "ixx": "ixx_2",
         "nixpkgs": [
-          "nixvim-config",
-          "nixvim",
+          "nixvim-master",
           "nixpkgs"
         ]
       },
@@ -313,8 +313,8 @@
     "root": {
       "inputs": {
         "nixpkgs": "nixpkgs",
-        "nixvim": "nixvim",
-        "nixvim-config": "nixvim-config"
+        "nixvim-config": "nixvim-config",
+        "nixvim-master": "nixvim-master"
       }
     },
     "systems": {
