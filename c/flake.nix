@@ -24,20 +24,7 @@
       module-added = {
         plugins = {
           conform-nvim.settings.formatters_by_ft.c = [ "clang-format" ];
-          dap = {
-            adapters.executables.lldb.command = "${pkgs.lldb_19}/bin/lldb-dap";
-            configurations.c = [
-              {
-                name = "lldb";
-                type = "lldb";
-                request = "launch";
-                program.__raw = ''
-                  function()
-                      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. '/', "file")
-                  end'';
-              }
-            ];
-          };
+          dap-lldb.enable = true;
           lint.lintersByFt.c = [ "cppcheck" ];
           lsp.servers.clangd.enable = true;
         };
