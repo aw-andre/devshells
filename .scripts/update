@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+for dir in *; do
+  pushd "$dir" &>/dev/null
+  nix flake update
+  popd &>/dev/null
+done
+
+git add .
+git commit -m 'chore: update flake lockfiles'
+git push origin master
