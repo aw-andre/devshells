@@ -23,18 +23,16 @@
       pkgs = nixpkgs.legacyPackages."x86_64-linux";
       module-added = {
         plugins = {
-          conform-nvim.settings.formatters_by_ft.rust = [ "rustfmt" ];
           dap-lldb.enable = true;
-          lint.lintersByFt.rust = [ "clippy" ];
           lsp.servers.rust_analyzer = {
             enable = true;
             installCargo = true;
             installRustc = true;
             installRustfmt = true;
+            settings.check.command = "clippy";
           };
         };
         extraPackages = with pkgs; [
-          rustfmt
           clippy
         ];
       };
