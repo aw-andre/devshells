@@ -16,6 +16,7 @@
         packages = with pkgs; [
           gcc
           rustc
+          clippy
           cargo
         ];
         shellHook = ''
