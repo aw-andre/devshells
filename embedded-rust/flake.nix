@@ -19,6 +19,7 @@
             gcc
             gdb
             cargo-binutils
+            openocd
             itm-tools
             minicom
             toolchain
