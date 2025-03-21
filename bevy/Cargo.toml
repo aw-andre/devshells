@@ -1,0 +1,26 @@
+[package]
+name = "name"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+bevy = { version = "0.15.3" }
+log = { version = "*", features = ["max_level_debug", "release_max_level_warn"] }
+
+[profile.dev]
+opt-level = 1
+
+[profile.dev.package."*"]
+opt-level = 3
+
+[profile.release]
+lto = true
+opt-level = 3
+codegen-units = 1
+incremental = false
+debug = false
+
+[profile.wasm-release]
+inherits = "release"
+opt-level = "s"
+strip = "debuginfo"
