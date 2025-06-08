@@ -7,7 +7,7 @@
     let pkgs = nixpkgs.legacyPackages."x86_64-linux";
     in {
       devShells."x86_64-linux".default = pkgs.mkShell {
-        packages = with pkgs; [ gcc rustc clippy cargo ];
+        packages = with pkgs; [ gcc lldb rustc clippy cargo ];
         shellHook = ''
           export RUST_BACKTRACE=1
         '';
